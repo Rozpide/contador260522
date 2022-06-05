@@ -39,6 +39,9 @@ setInterval(function () {
 	let three = Math.floor(counter / 100);
 	let two = Math.floor(counter / 10);
 	let one = Math.floor(counter / 1);
+	if (one > 10) {
+		one = one - two * 10;
+	}
 	console.log(four, three, two, one);
 	counter++;
 	ReactDOM.render(
