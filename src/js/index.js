@@ -20,6 +20,8 @@ function SimpleCounter(props) {
 			<div className="calendar">
 				<i className="fa-regular fa-clock"></i>
 			</div>
+			<div className="six">{props.digitSix}</div>
+			<div className="five">{props.digitFive}</div>
 			<div className="four">{props.digitFour}</div>
 			<div className="three">{props.digitThree}</div>
 			<div className="two">{props.digitTwo}</div>
@@ -28,6 +30,8 @@ function SimpleCounter(props) {
 	);
 }
 SimpleCounter.propTypes = {
+	digitSix: propTypes.number,
+	digitFive: propTypes.number,
 	digitFour: propTypes.number,
 	digitThree: propTypes.number,
 	digitTwo: propTypes.number,
@@ -35,14 +39,16 @@ SimpleCounter.propTypes = {
 };
 let counter = 0;
 setInterval(function () {
-	let four = Math.floor(counter / 1000);
-	let three = Math.floor(counter / 100);
-	let two = Math.floor(counter / 10);
-	let one = Math.floor(counter / 1);
-	if (one > 10) {
-		one = one - two * 10;
-	}
-	console.log(four, three, two, one);
+	let six = Math.floor(counter / 100000) % 10;
+	let five = Math.floor(counter / 10000) % 10;
+	let four = Math.floor(counter / 1000) % 10;
+	let three = Math.floor(counter / 100) % 10;
+	let two = Math.floor(counter / 10) % 10;
+	let one = Math.floor(counter / 1) % 10;
+	// if (one > 10) {
+	// 	one = one - two * 10;
+	// }
+	console.log(five, four, three, two, one);
 	counter++;
 	ReactDOM.render(
 		<SimpleCounter
@@ -50,6 +56,8 @@ setInterval(function () {
 			digitTwo={two}
 			digitThree={three}
 			digitFour={four}
+			digitFive={five}
+			digitSix={six}
 		/>,
 
 		document.querySelector("#app")
