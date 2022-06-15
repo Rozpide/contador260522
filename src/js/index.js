@@ -48,7 +48,7 @@ setInterval(function () {
 	// if (one > 10) {
 	// 	one = one - two * 10;
 	// }
-	console.log(five, four, three, two, one);
+	console.log(six, five, four, three, two, one);
 	counter++;
 	ReactDOM.render(
 		<SimpleCounter
